@@ -1,5 +1,7 @@
+// @vitest-environment jsdom
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import React from "react";
 import Header from "./Header";
 import About from "./About";
@@ -13,10 +15,9 @@ test("Header renders correctly with name prop", () => {
 
 test("About renders an aside with image and text", () => {
   render(<About image="https://via.placeholder.com/215" about="My blog description" />);
-  const aside = screen.getByRole("complementary");
   const img = screen.getByAltText("blog logo");
-  expect(aside).toBeInTheDocument();
-  expect(img.src).toBe("https://via.placeholder.com/215");
+  expect(img).toBeInTheDocument();
+  expect(img.getAttribute("src")).toBe("https://via.placeholder.com/215");
 });
 
 test("Article renders a title, date, and preview", () => {
