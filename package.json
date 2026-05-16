@@ -10,5 +10,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
   }
 }
